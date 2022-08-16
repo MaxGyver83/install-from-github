@@ -30,7 +30,7 @@ chmod +x install-from-github.sh
 ./install-from-github.sh BurntSushi/ripgrep sharkdp/fd
 ```
 
-This script will prefer deb/rpm/apk packages and install them with `[sudo] dpkg -i PACKAGE` (in case you are using Debian/Ubuntu, RedHat or Alpine) and download + extract binary archives as a fallback. If you prefer binary archives (maybe because you don't have sudo rights), use the option `--archives-only` (or short: `-a`):
+This script will prefer deb/rpm/apk packages and install them with `[sudo] dpkg -i PACKAGE` (or alike, in case you are using Debian/Ubuntu, RedHat or Alpine) and download + extract binary archives as a fallback. If you prefer binary archives (maybe because you don't have sudo rights), use the option `--archives-only` (or short: `-a`):
 
 ```sh
 ./install-from-github.sh -a BurntSushi/ripgrep sharkdp/fd
