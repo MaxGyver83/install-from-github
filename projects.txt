@@ -1,0 +1,15 @@
+# Run `./install-from-github.sh -p projects.txt`
+# to install all projects listed in this file.
+neovim/neovim
+BurntSushi/ripgrep
+sharkdp/fd
+sharkdp/bat
+ogham/exa
+muesli/duf  # inline comments allowed
+chmln/sd    # a "sed" alternative
+koalaman/shellcheck
+mvdan/sh
+cli/cli
+jesseduffield/lazygit
+
+# vim:syntax=sh
