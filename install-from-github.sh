@@ -20,7 +20,8 @@ ACCEPT_FILTER='64'
 IGNORE_FILTER_PACKAGE='arm|ppc'
 IGNORE_FILTER_ARCHIVE='macos|darwin|apple|win|bsd|arm|aarch|ppc|i686|sha256|deb$|rpm$|apk$|sig$'
 
-WGET='wget --continue --timestamping'
+WGET='wget'
+WGET_ARGS='--continue --timestamping'
 # TODO: --timestamping only available in GNU wget!?
 # TODO: Use curl when wget is not available
 
@@ -165,7 +166,7 @@ download_and_install_package() {
     echo "$package"
     [ $DEV ] && return 0
     info "Downloading $(basename "$package") ..."
-    $WGET "$package"
+    $WGET $WGET_ARGS "$package"
     echo "  $INSTALL_CMD $(basename "$package")"
     if ! $INSTALL_CMD "$(basename "$package")"; then
         error "Installation failed!"
@@ -226,7 +227,7 @@ download_and_extract_archive() {
     [ $DEV ] && return 0
     filename="$(basename "$archive")"
     [ -f "$DOWNLOAD_DIR/$filename" ] && rm -rf "${DOWNLOAD_DIR:?}/$filename"
-    $WGET "$archive"
+    $WGET $WGET_ARGS "$archive"
     mkdir -p $BINARY_DIR
     if is_binary "$filename"; then
         [ -x "$filename" ] || chmod +x "$filename"
