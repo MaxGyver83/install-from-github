@@ -11,5 +11,7 @@ koalaman/shellcheck
 mvdan/sh
 cli/cli
 jesseduffield/lazygit
+bootandy/dust
+dalance/procs
 
 # vim:syntax=sh

@@ -18,7 +18,7 @@ BINARY_DIR=~/.local/bin
 
 ACCEPT_FILTER='64'
 IGNORE_FILTER_PACKAGE='arm|ppc'
-IGNORE_FILTER_ARCHIVE='macos|darwin|apple|win|bsd|arm|aarch|ppc|i686|sha256|deb$|rpm$|apk$|sig$'
+IGNORE_FILTER_ARCHIVE='mac|macos|darwin|apple|win|bsd|arm|aarch|ppc|i686|sha256|deb$|rpm$|apk$|sig$'
 
 WGET='wget'
 WGET_ARGS='--continue --timestamping'
