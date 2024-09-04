@@ -114,6 +114,13 @@ is_in_PATH() {
     esac
 }
 
+all_basenames_equal() {
+    unique_basename_count="$(for file in $1; do
+        echo "${file%%.*}"
+    done | sort -u | wc -l)"
+    test $unique_basename_count -eq 1
+}
+
 download_asset_list() {
     project="$1"
     filename="$2"
@@ -213,6 +220,10 @@ download_and_extract_archive() {
         else
             archive="$(echo "$archive" | grep -v musl)"
         fi
+    fi
+    count="$(echo "$archive" | wc -l)"
+    if [ "$count" -gt 1 ] && all_basenames_equal "$archive"; then
+        archive="$(echo "$archive" | head -n 1)"
     fi
     count="$(echo "$archive" | wc -l)"
     if [ -z "$archive" ]; then
